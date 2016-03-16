@@ -1,0 +1,45 @@
+Q2: Latency H1->H4 = L1 + L2 + L3 = 40+10+30 = ~80ms (x2 for RTT) = ~160ms
+    Throughput H1->H4 = min(L1, L2, L3) = 20Mbps
+
+
+Q3: Latency will be * N, for N = num pairs
+    Throughput will be / N, for N = num pairs
+
+Outputs:
+	Pairs:
+	avg RTT: 160.926ms
+	throughput: 10.341Mbps
+	
+	Triples:
+<<<<<<< HEAD
+	avg RTT: 160ms (has science gone too far?)
+	throughput: 7.57Mbps
+
+Q4: The shared link will have to be multiplexed:
+	Bandwidth: h1->h4 = L1 + L2/2 + L3
+        Bandwidth: h5->h6 = L4 + L2/2 + L5
+	Latency: h1->h4 = L1 + L2*2 + L3
+	Latency: h5->h6 = L4 + L2*2 + L5 
+=======
+	avg RTT: 160ms
+	throughput: 7.57Mbps
+
+Q4: The shared link will have to be multiplexed:
+	Guess:
+	Bandwidth: h1->h4 = MIN(BWL1,  BWL2/2 , BWL3) = 20 Mbps
+        Bandwidth: h5->h6 = MIN(BWL4 , BWL2/442 , BWL5) = 20 Mbps
+	Latency: h1->h4 = 2x(LTL1 + LTL2*2 + LTL3) =  180ms
+	Latency: h5->h6 = 2x(LTL4 + LTL2*2 + LTL5) = 60ms
+
+	Actual:
+	Bandwidth: h1->h4 = 20.09
+        Bandwidth: h5->h6 = 21.39
+	Latency: h1->h4 = 160.876
+	Latency: h5->h6 = 40.727
+
+	All of our answers are over because we assumed that ping would max out the 
+	shared link(L2) and double the time to send over that link. 
+	a better calculation of latency would be 
+	Latency: h1->h4 = 2x(LTL1 + LTL2 + LTL3) =  160ms
+	Latency: h5->h6 = 2x(LTL4 + LTL2 + LTL5) = 40ms
+>>>>>>> f47e303d7da1ef0725050adf11cf4ad1ce729989

@@ -1,0 +1,5 @@
+sent=53967 KB rate=21.39 Mbps
+<<<<<<< HEAD
+=======
+received=53967 KB rate=20.11 Mbps
+>>>>>>> f47e303d7da1ef0725050adf11cf4ad1ce729989
